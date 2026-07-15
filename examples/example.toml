@@ -1,0 +1,60 @@
+[simulation]
+seed = 42
+
+[photon]
+n_photons = 1_000_000
+
+[photon.phase_function]
+# Options:
+#
+#   phase_function = "isotropic"
+#
+#   phase_function = "henyey_greenstein"
+#   g = <float in [-1, 1]>
+phase_function = "henyey_greenstein"
+g = 0.8
+
+[slab]
+width = 10
+height = 2
+edge_margin = 4 # Prevent photon injection near lateral boundaries to reduce edge effects
+
+[grid]
+nx = 100
+ny = 100
+nz = 50
+
+[clump]
+n_clumps = 10_000
+
+# Options for radius, density, and opacity:
+#
+#   distribution = "constant"
+#   value = <float>
+#
+#   distribution = "uniform"
+#   min = <float>
+#   max = <float>
+#
+#   distribution = "normal"
+#   mean  = <float>
+#   stdev = <float>
+#
+#   distribution = "power_law"
+#   min = <float>
+#   max = <float>
+#   alpha = <float>
+
+[clump.radius]
+distribution = "constant"
+value = 0.5
+
+[clump.density]
+distribution = "uniform"
+min = 1.5
+max = 2.5
+
+[clump.opacity]
+distribution = "normal"
+mean = 1
+stdev = 0.2
