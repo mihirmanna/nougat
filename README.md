@@ -27,7 +27,7 @@ The executable will be located at `target/release/nougat`.
 ## Usage
 
 Simulation parameters are specified in a TOML configuration file. 
-An annotated example containing all available options is provided in [`examples/example.toml`](examples/example_config.toml).
+An annotated example containing all available options is provided in [`examples/example.toml`](examples/example.toml).
 
 Run with Cargo:
 
