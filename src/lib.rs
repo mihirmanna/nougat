@@ -29,7 +29,11 @@ pub struct SimulationResult {
 pub fn run(config: &mut Config) -> SimulationResult {
     let mut rng = StdRng::seed_from_u64(config.simulation.seed);
 
-    let mut slab = Slab::new(config.slab.width, config.slab.height);
+    let mut slab = Slab::new(
+        config.slab.width,
+        config.slab.height,
+        config.slab.boundary_condition,
+    );
     for _ in 0..config.clump.n_clumps {
         slab.add_clump(Clump {
             pos: Vec3::new(

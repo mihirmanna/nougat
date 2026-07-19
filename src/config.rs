@@ -215,7 +215,7 @@ impl PhaseFunction {
 }
 
 /// Defines the photon traversal condition enforced at the lateral boundaries of the slab.
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize, Debug, Copy, Clone)]
 #[serde(tag = "boundary_condition")]
 pub(crate) enum BoundaryCondition {
     Open,

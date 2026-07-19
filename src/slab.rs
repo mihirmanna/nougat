@@ -1,3 +1,4 @@
+use crate::config::BoundaryCondition;
 use glam::{DVec3 as Vec3, IVec3};
 
 /// Spherical, homogeneous clump
@@ -13,15 +14,17 @@ pub(crate) struct Slab {
     pub(crate) width: f64,
     pub(crate) height: f64,
     pub(crate) clumps: Vec<Clump>,
+    pub(crate) boundary_condition: BoundaryCondition,
 }
 
 impl Slab {
     /// Creates a slab of size `width` in the x- and y-directions, and `height` in the z-direction.
-    pub(crate) fn new(width: f64, height: f64) -> Self {
+    pub(crate) fn new(width: f64, height: f64, boundary_condition: BoundaryCondition) -> Self {
         Self {
             width,
             height,
             clumps: Vec::new(),
+            boundary_condition,
         }
     }
 
