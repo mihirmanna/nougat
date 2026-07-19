@@ -77,6 +77,7 @@ pub(crate) struct SlabConfig {
     pub(crate) width: f64,
     pub(crate) height: f64,
     pub(crate) edge_margin: f64,
+    pub(crate) boundary_condition: BoundaryCondition,
 }
 
 impl SlabConfig {
@@ -211,4 +212,13 @@ impl PhaseFunction {
             }
         }
     }
+}
+
+/// Defines the photon traversal condition enforced at the lateral boundaries of the slab.
+#[derive(Deserialize, Debug)]
+#[serde(tag = "boundary_condition")]
+pub(crate) enum BoundaryCondition {
+    Open,
+    Reflective,
+    Periodic,
 }
