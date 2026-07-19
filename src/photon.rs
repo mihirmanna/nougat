@@ -19,9 +19,14 @@ impl Photon {
         Self { ray, n_scatters: 0 }
     }
 
+    /// Redirects the photon from the point at `origin` along the direction provided by `dir`.
+    pub fn redirect(&mut self, origin: Vec3, dir: Vec3) {
+        self.ray = Ray::new(origin, dir);
+    }
+
     /// Scatters the photon from the point at `origin` along the direction provided by `dir`.
     pub fn scatter(&mut self, origin: Vec3, dir: Vec3) {
-        self.ray = Ray::new(origin, dir);
+        self.redirect(origin, dir);
         self.n_scatters += 1;
     }
 }
